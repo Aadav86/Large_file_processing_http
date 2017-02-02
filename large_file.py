@@ -28,8 +28,8 @@ def read_in_chunks(file_object, chunk_size=4096):
 def execute_popen_command():
     try:
         cmd = "/usr/bin/sudo /usr/bin/zip - /logs/my.csv"
-        file_write("Cmd %s" %cmd)
-        file_write("%s %s" %(datetime.datetime.now(), cmd))
+        logging.info("Cmd %s" %cmd)
+        logging.info("%s %s" %(datetime.datetime.now(), cmd))
         process = subprocess.Popen(cmd, stdout=subprocess.PIPE, stderr = subprocess.PIPE, shell=True)
         while True:
             output = process.stdout.read(4096)
